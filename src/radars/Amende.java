@@ -10,6 +10,7 @@ public class Amende implements Serializable {
     private int numero;
     private String immatriculation;
     private int tarif;
+    private boolean payee = false;
 
     public Amende() { super(); }
 
@@ -35,5 +36,13 @@ public class Amende implements Serializable {
     @Override
     public String toString() {
         return String.format("Amende n°%d de %d EUR pour %s",numero,tarif,immatriculation);
+    }
+
+    public boolean isPayee() {
+        return payee;
+    }
+
+    public void setPayee(boolean payee) {
+        this.payee = payee;
     }
 }
