@@ -36,10 +36,13 @@ public class SystemeAmendesImpl implements SystemeAmendes {
 
     @Override
     public Amende[] lister(String immatriculation) {
-      /*  Voiture voitureSignaled = this.getVoiture();
-        Amende [] amendes = new Amende[];
-        */
-        return new Amende[0];
+       Voiture voitureSignaled = this.getVoiture();
+       Amende [] amendes = new Amende[0];
+      // amendes[1] = {"001", "20", false};
+
+
+
+       return amendes;
 
     }
 

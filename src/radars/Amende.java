@@ -19,6 +19,7 @@ public class Amende implements Serializable {
         numero = numero_;
         this.immatriculation = immatriculation;
         this.tarif = tarif;
+
     }
 
     public int getNumero() {
