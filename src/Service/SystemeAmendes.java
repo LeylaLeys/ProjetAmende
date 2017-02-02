@@ -4,10 +4,12 @@ import radars.Amende;
 import radars.Voiture;
 
 import javax.jws.WebMethod;
+import javax.jws.WebService;
 
 /**
  * Created by Leys on 25/01/2017.
  */
+
 public interface SystemeAmendes {
     @WebMethod
     void enregistrer(Voiture voiture);

@@ -3,13 +3,17 @@ package Service;
 import radars.Amende;
 import radars.Voiture;
 
+import javax.jws.WebService;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Leys on 25/01/2017.
  */
+
+@WebService
 public class SystemeAmendesImpl implements SystemeAmendes {
-    Amende amende;
+    public List<Amende> listeAmendesDues = new ArrayList();
     Voiture voiture;
 
     public Voiture getVoiture (){ return voiture;}
@@ -27,6 +31,7 @@ public class SystemeAmendesImpl implements SystemeAmendes {
         Amende amende = new Amende(immatriculation, tarif);
         try {
             System.out.println("Vous avez commis une faute");
+            listeAmendesDues.add(amende);
             return amende.getNumero();
         } catch (Exception e) {
             return -1;
@@ -37,10 +42,16 @@ public class SystemeAmendesImpl implements SystemeAmendes {
     @Override
     public Amende[] lister(String immatriculation) {
        Voiture voitureSignaled = this.getVoiture();
-       Amende [] amendes = new Amende[0];
-      // amendes[1] = {"001", "20", false};
-
-
+       Amende [] amendes = new Amende[1000];
+       for (Amende A : listeAmendesDues)
+       {
+          int i=0;
+          if (A.getImmatriculation().equals(immatriculation));
+           {
+               amendes[i] = A;
+               i++;
+           }
+       }
 
        return amendes;
 
@@ -48,6 +59,12 @@ public class SystemeAmendesImpl implements SystemeAmendes {
 
     @Override
     public void payer(int numero, String nom, String prenom) {
+        for (Amende A : listeAmendesDues) {
+            if (A.getNumero() == numero) ;
+            {
+                listeAmendesDues.remove(A);
+            }
+        }
 
     }
 }
