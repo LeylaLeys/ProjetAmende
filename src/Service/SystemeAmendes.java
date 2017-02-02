@@ -10,6 +10,7 @@ import javax.jws.WebService;
  * Created by Leys on 25/01/2017.
  */
 
+@WebService
 public interface SystemeAmendes {
     @WebMethod
     void enregistrer(Voiture voiture);

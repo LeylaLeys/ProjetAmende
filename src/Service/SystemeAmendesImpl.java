@@ -23,9 +23,9 @@ public class SystemeAmendesImpl implements SystemeAmendes {
 
     @Override
     public void enregistrer(Voiture voiture) {
-        System.out.println("Voiture enregistrée" +
+        System.out.println("Voiture enregistrée \n" +
                voiture.getModele()  +
-                "possédée par" + voiture.getProprietaire() );
+                " possédée par " + voiture.getProprietaire() );
         this.voiture = voiture;
     }
 
@@ -33,7 +33,7 @@ public class SystemeAmendesImpl implements SystemeAmendes {
     public int signaler(String immatriculation, String modele, int tarif) {
         Amende amende = new Amende(immatriculation, tarif);
         try {
-            System.out.println("Vous avez commis une faute");
+            System.out.println("Amende enregistrée \n" + "n°" + amende.getNumero() +" de " + amende.getTarif() + "EUR pour " + voiture.getProprietaire());
             listeAmendesDues.add(amende);
             return amende.getNumero();
         } catch (Exception e) {
@@ -67,6 +67,8 @@ public class SystemeAmendesImpl implements SystemeAmendes {
                 listeAmendesDues.remove(A);
             }
         }
+        System.out.println("Amende payée: \n" +
+                "n°"+ numero);
 
     }
 }
