@@ -23,6 +23,9 @@ public class SystemeAmendesImpl implements SystemeAmendes {
 
     @Override
     public void enregistrer(Voiture voiture) {
+        System.out.println("Voiture enregistrée" +
+               voiture.getModele()  +
+                "possédée par" + voiture.getProprietaire() );
         this.voiture = voiture;
     }
 
@@ -41,7 +44,6 @@ public class SystemeAmendesImpl implements SystemeAmendes {
 
     @Override
     public Amende[] lister(String immatriculation) {
-       Voiture voitureSignaled = this.getVoiture();
        Amende [] amendes = new Amende[1000];
        for (Amende A : listeAmendesDues)
        {
